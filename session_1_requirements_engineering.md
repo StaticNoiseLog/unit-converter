@@ -39,7 +39,7 @@ Any technology preferences for the GUI? (e.g., Python with Tkinter/PyQt, Java Sw
 
 ### User
 
-"Unit Converter" is a great name. The technical name (projectt root) is "unit-converter".
+"Unit Converter" is a great name. The technical name (project root) is "unit-converter".
 We want to add more unit types over time, but we start with two modules: temperature and length.
 
 ### Kiro
@@ -80,7 +80,7 @@ As an End User, what are the most important things you need from this unit conve
 
 ### User
 
-I want an intuitive GUI that let's me type in a temperature in one of the three units (Celsius, Fahrenheit, Kelvin) and that immediately calculates and displays the other two values. I want all three values visible and updated next to each other.
+I want an intuitive GUI that lets me type in a temperature in one of the three units (Celsius, Fahrenheit, Kelvin) and that immediately calculates and displays the other two values. I want all three values visible and updated next to each other.
 
 Each conversion is a different tab.
 
@@ -155,7 +155,7 @@ A few follow-up questions on input validation and behavior:
 1. Everything that cannot be computed is "invalid input". It would be nice to see an error text that explains what the problem is.
 2. No need to refresh on every keystroke, wait for 1 second (debounce). Do calculation immediately if the input field loses focus.
 3. Clear the fields on the current tab only with the reset button.
-4. Yes, accept scientific notation. On output, use it only when the (rounded) result would be comletely illegible otherwise.
+4. Yes, accept scientific notation. On output, use it only when the (rounded) result would be completely illegible otherwise.
 
 ### Kiro
 
@@ -173,7 +173,7 @@ A few more questions on this requirement from the End User perspective:
 1. Make the field red, show the error as tooltip.
 2. Great idea! Make the background of the input field light green, the others white.
 3. Yes, reject negative Kelvin, but explain why in the error text.
-4. The fields should be stacked verticially.
+4. The fields should be stacked vertically.
 5. No need to remember state between sessions.
 
 ### Kiro
@@ -190,12 +190,12 @@ A few more questions on this requirement from the End User perspective:
 ### User
 
 1. No, accept negative numbers anywhere except for temperature (Kelvin). Antigravity is just around the corner, isn't it? And even for volume units we cannot be sure ("It's bigger on the inside").
-2. Sort the tabs alphabetically from left to right. This must be dynamic: When a new module for a another unit conversion is added in the futuer, it will be a new tab and it must find its proper place in the alphabetic sequence of tabs.
+2. Sort the tabs alphabetically from left to right. This must be dynamic: When a new module for another unit conversion is added in the future, it will be a new tab and it must find its proper place in the alphabetic sequence of tabs.
 3. We want it responsive.
 4. Tend to larger fonts for excellent readability.
 5. No special title bar needed.
 
-## Kiro
+### Kiro
 
 Understood.
 
@@ -242,7 +242,7 @@ A few follow-up questions from the Developer interview:
 ### User
 
 1. Compile-time module is good enough to start.
-2. No need for monetarization support currently.
+2. No need for monetization support currently.
 3. Yes, Compose Multiplatform, definitely.
 4. JDK 25 (current LTS for Java).
 5. No packaging for the moment, we will run it through a Gradle task.
@@ -270,7 +270,7 @@ Take it one at a time — what's most important to you as QA?
 ### User
 
 1. I count on unit tests and TDD, as usual. A test automation tool that interacts on the GUI level would be nice (think Selenium for the browser). But we never had anything like that for Compose Multiplatform. I am mentioning this as a wish, if it is too hard or no reasonable tooling available, I can live without it.
-2. Use modern and standard tools: kotlin-test, junit-jupiter. As mentioned, if there is something that can test-drive the actual Compose UI, that would be great. For QA use strict compiler options (allWarningsAsErrors = true, extraWarnings = true) and detekt for the bulid.
+2. Use modern and standard tools: kotlin-test, junit-jupiter. As mentioned, if there is something that can test-drive the actual Compose UI, that would be great. For QA use strict compiler options (allWarningsAsErrors = true, extraWarnings = true) and detekt for the build.
 3. I have no special numbers in mind. Use what is considered common.
 4. For temperature, absolute zero must be tested. If we can have an automated GUI test, then switching between tabs must work (state must be preserved in hidden tabs).
 5. No automation needed. I will start all tests by hand.
