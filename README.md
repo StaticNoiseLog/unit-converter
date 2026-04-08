@@ -1,6 +1,6 @@
 # Unit Converter
 
-A demo project exploring the use of playbooks in agentic software development with [Kiro](https://kiro.dev).
+A demo project exploring the use of [playbooks](https://github.com/StaticNoiseLog/ai-toolbelt/tree/master/playbooks) in agentic software development with [Kiro](https://kiro.dev).
 
 ## What Is This?
 
