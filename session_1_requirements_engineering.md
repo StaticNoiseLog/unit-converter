@@ -4,15 +4,21 @@ Settings
 - Claude Opus 4.6
 - Autopilot
 
+Session Dialog
+--------------
+
 ### User
 
 #requirements_engineering_playbook.md 
+
 Let's gather requirements for a new project!
 
 ### Kiro
 
 Got it — I've read through your Requirements Engineering Playbook and will follow it as the primary guide for this process.
+
 Let's kick things off properly. Following the playbook's initial step:
+
 What is the purpose of this project? Give me a clear statement of what you're trying to build and the problem it solves. From there, we'll collaborate on a concise project name and start identifying stakeholders.
 
 ### User
@@ -22,9 +28,13 @@ Let's write a unit converter with a GUI that runs locally on a PC.
 ### Kiro
 
 Nice — a local GUI unit converter. Clear and focused.
+
 Before we dive into stakeholders and requirements, let me confirm the project name and scope with you:
+
 How about "Unit Converter" as the project name? Or do you have something else in mind? Also, a couple of quick clarifications to frame the scope:
+
 What types of units are you thinking? (e.g., length, weight, temperature, volume, currency, time — or all of the above?)
+
 Any technology preferences for the GUI? (e.g., Python with Tkinter/PyQt, Java Swing, C# WPF, Electron, etc.)
 
 ### User
@@ -35,10 +45,13 @@ We want to add more unit types over time, but we start with two modules: tempera
 ### Kiro
 
 Great — "Unit Converter" it is, with unit-converter as the project root. Starting with temperature and length modules, designed to grow over time.
+
 Now, following the playbook's requirements elicitation process, we need to identify stakeholders. Let me suggest some relevant ones for a local desktop unit converter:
-End User — the person using the converter day-to-day
-Developer — building and maintaining the application
-Tester/QA — validating correctness of conversions and UI behavior
+
+* End User — the person using the converter day-to-day
+* Developer — building and maintaining the application
+* Tester/QA — validating correctness of conversions and UI behavior
+
 Who are the stakeholders for this project? I've suggested End User, Developer, and Tester/QA as starting points. Are there others we should include? (e.g., a designer, a domain expert, operations/support, management?) And which stakeholder would you like to speak as first — or should I interview you as the End User to start?
 
 ### User
@@ -57,9 +70,10 @@ Great — project name "Unit Converter" (root: unit-converter), starting with te
 
 Stakeholders identified:
 
-End User (you, right now)
-Developer
-Tester/QA
+- End User (you, right now)
+- Developer
+- Tester/QA
+
 Let's start the interview with you as the End User.
 
 As an End User, what are the most important things you need from this unit converter? Think about what you'd want to do with it day-to-day. For example: What kinds of temperature conversions matter to you (Celsius, Fahrenheit, Kelvin)? What length units (meters, feet, inches, miles, etc.)? Any specific workflows or pain points you're trying to solve? Let's start with your highest-priority requirement and we'll dig into the details from there.
@@ -78,22 +92,23 @@ Great details on the temperature tab — I've noted the live conversion with all
 
 For the weight tab, here are the most commonly used weight/mass units:
 
-Milligram (mg)
-Gram (g)
-Kilogram (kg)
-Metric Ton / Tonne (t)
-Ounce (oz)
-Pound (lb)
-Stone (st) — common in the UK
-US Ton / Short Ton (2,000 lb)
-Imperial Ton / Long Ton (2,240 lb)
-The most popular for everyday use tend to be kilogram, gram, pound, and ounce. Stone is niche but common in the UK for body weight.
+- Milligram (mg)
+- Gram (g)
+- Kilogram (kg)
+- Metric Ton / Tonne (t)
+- Ounce (oz)
+- Pound (lb)
+- Stone (st) — common in the UK
+- US Ton / Short Ton (2,000 lb)
+- Imperial Ton / Long Ton (2,240 lb)
+- The most popular for everyday use tend to be kilogram, gram, pound, and ounce. Stone is niche but common in the UK for body weight.
 
 Which weight units do you want to include in the weight tab? Pick from the list above, or tell me a use case (e.g., "cooking", "body weight", "shipping") and I'll suggest a good set. Also, should the weight tab work the same way as temperature — type in one value and see all others update live?
 
 ### User
 
 Thanks!
+
 Yes, all tabs work the same, live update of the visible fields.
 On the weight tab I want fields for these units:
 
