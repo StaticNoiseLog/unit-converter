@@ -89,3 +89,21 @@ Tasks 3, 4, and 5 are done. Here's the summary:
 - 63 tests all passing, covering conversion formulas, round-trips, PRD acceptance criteria, absolute zero boundaries, validation, and formatting edge cases
 
 Ready for Tasks 6/7/8 (ViewModels and shared UI) whenever you want to continue.
+
+### User
+
+Great! Continue with tasks 6, 7 and 8.
+
+### Kiro
+
+Tasks 6, 7, and 8 are done. Here's what was built:
+
+- ConversionViewModel — generic, reusable ViewModel for any conversion tab. Manages field values as Compose state, debounce via coroutines (1s delay, immediate on blur), two-stage validation (syntax → domain), conversion through the base unit, and reset. Both modules share this instead of duplicating logic.
+- Theme — large fonts (20sp fields, 16sp labels), color constants for active (light green), invalid (light red), and default (white) states.
+- UnitField — composable with labeled OutlinedTextField, background color reflecting state, error text below invalid fields, focus change handling, and testTag for UI testing.
+- ResetButton — composable with testTag, delegates to ViewModel reset.
+- ConversionTab — shared layout composable that renders unit fields vertically with a reset button, scrollable.
+- TemperatureModule and WeightModule — concrete ConversionModule implementations, each creating a ConversionViewModel with their respective units and rendering via ConversionTab.
+- Detekt configured to allow PascalCase for @Composable functions.
+
+Ready for Task 9 (App Shell) to wire everything together into a running application.

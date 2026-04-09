@@ -1,0 +1,8 @@
+# Detekt configuration for Unit Converter.
+# Adjustments for Compose conventions.
+
+naming:
+  FunctionNaming:
+    # Compose composable functions use PascalCase by convention.
+    ignoreAnnotated:
+      - "Composable"

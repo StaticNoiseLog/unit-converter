@@ -49,4 +49,5 @@ tasks.withType<Test> {
 
 detekt {
     buildUponDefaultConfig = true
+    config.setFrom(files("detekt.yml"))
 }
