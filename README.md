@@ -63,7 +63,20 @@ unit-converter/
 │   ├── adr/                    # Architecture Decision Records
 │   └── development/
 │       └── backlog.md          # Task backlog
-├── session_1_requirements_engineering.md  # Transcript of the RE session
+├── src/
+│   ├── main/kotlin/unitconverter/
+│   │   ├── Main.kt             # Application entry point
+│   │   ├── app/                # App shell (registry, tab host)
+│   │   ├── core/               # Contracts, ViewModel, formatter
+│   │   ├── module/             # Conversion modules (temperature, weight)
+│   │   └── ui/                 # Shared UI components (fields, theme)
+│   └── test/kotlin/unitconverter/
+│       ├── core/               # Unit tests (formatter)
+│       ├── module/             # Unit tests (converters, validation)
+│       └── ui/                 # Compose UI tests
+├── session_1_requirements_engineering.md
+├── session_2_solution_architecture.md
+├── session_3_software_development.md
 └── README.md
 ```
 
@@ -84,6 +97,8 @@ unit-converter/
 Each phase of the project is captured in a session transcript so you can see exactly how the agent and human collaborated:
 
 - `session_1_requirements_engineering.md` — Stakeholder interviews producing the PRD
+- `session_2_solution_architecture.md` — Architecture design producing the SAD and ADRs
+- `session_3_software_development.md` — Implementation producing the running application
 
 ## Getting Started
 
@@ -94,11 +109,67 @@ Prerequisites: JDK 25 installed.
 git clone <repository-url>
 cd unit-converter
 
+# Build (compile + test + detekt)
+./gradlew build
+
 # Run the application
 ./gradlew run
 
-# Run tests
+# Run all tests
 ./gradlew test
+
+# Run only unit tests (conversion logic, formatting, validation)
+./gradlew test --tests "unitconverter.core.*" --tests "unitconverter.module.*"
+
+# Run only Compose UI tests
+./gradlew test --tests "unitconverter.ui.*"
+
+# Run detekt static analysis separately
+./gradlew detekt
+```
+
+## Testing
+
+The project has two categories of automated tests, all executed via `./gradlew test`.
+
+### Unit Tests (JUnit 5)
+
+Standard unit tests for business logic, independent of the UI. These use `kotlin-test` + `junit-jupiter` and cover conversion formulas, validation rules, output formatting, and edge cases.
+
+```bash
+# Run all unit tests
+./gradlew test --tests "unitconverter.core.*" --tests "unitconverter.module.*"
+
+# Run only temperature converter tests
+./gradlew test --tests "unitconverter.module.temperature.*"
+
+# Run only weight converter tests
+./gradlew test --tests "unitconverter.module.weight.*"
+
+# Run only formatter tests
+./gradlew test --tests "unitconverter.core.FormatterTest"
+```
+
+### Compose UI Tests (JUnit 4)
+
+These are automated GUI tests that render the actual Compose UI in a headless test environment and interact with it programmatically — clicking tabs, typing into fields, and asserting on the resulting state. They use `compose.desktop.uiTestJUnit4` with JUnit 4 (run on the JUnit Platform via the Vintage engine).
+
+Compose UI tests find composables by their `testTag` (e.g., `"field-Celsius"`, `"tab-Weight"`, `"reset-Temperature"`) and perform actions like `performClick()`, `performTextInput()`, and assertions like `assertTextContains()`.
+
+The project has two UI test classes:
+
+- `TabSwitchingTest` — Verifies tab navigation, state preservation across tab switches, reset button isolation, and input focus correctness (input goes only to the visible tab).
+- `ConversionUiTest` — Verifies PRD acceptance criteria end-to-end through the UI: temperature and weight conversions with expected output values, input validation (non-numeric, below absolute zero), scientific notation, error display and clearing, and default state.
+
+```bash
+# Run all Compose UI tests
+./gradlew test --tests "unitconverter.ui.*"
+
+# Run only tab switching tests
+./gradlew test --tests "unitconverter.ui.TabSwitchingTest"
+
+# Run only conversion and validation UI tests
+./gradlew test --tests "unitconverter.ui.ConversionUiTest"
 ```
 
 ## License

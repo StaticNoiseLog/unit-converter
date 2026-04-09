@@ -207,3 +207,17 @@ Task 12 done. 12 new UI tests added in ConversionUiTest, covering the PRD accept
 - REQ-005: Validation — non-numeric input error, below-absolute-zero error, scientific notation accepted, error clears after correction
 
 Total test count is now 80 (63 unit + 17 UI). All passing, Detekt clean. Task 13 (README) is the last one.
+
+### User
+
+Wonderful!
+
+We can move on to the final item in the backlog, task 13.
+
+In particular, describe in README.md what Compose UI tests are, which ones we have and how to run each one on the command line.
+
+Note that this project's main purpose is to illustrate how to work with playbooks for AI-assisted software development. The details of how the unit converter works are not of much interest. Do not elaborate too much on this side of the project. It is enough if a reader understands how to build, test and run the app.
+
+### Kiro
+
+Task 13 done — all 13 backlog items complete. The README now covers build/test/run commands, explains the two test categories (unit tests vs Compose UI tests), lists the specific UI test classes and what they verify, and shows how to run each one individually from the command line. The project structure section reflects the actual source tree, and all three session transcripts are referenced.
