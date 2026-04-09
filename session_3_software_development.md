@@ -43,3 +43,34 @@ The backlog is at backlog.md — 13 tasks, 54 complexity points total, mapped to
 Tasks 3 and 4 (temperature and weight converters) can be worked in parallel since they share only the core contracts from Task 2. Same for Tasks 6/7 (ViewModels) and Task 8 (shared UI).
 
 Please review the priorities and complexity estimates — adjust anything that doesn't feel right before we start.
+
+### User
+
+I have reviewed the backlog, all good. Please start task 1.
+
+### Kiro
+
+Task 1 is complete. Here's what's in place:
+
+- libs.versions.toml cleaned up: Ktor/server deps removed, Compose Multiplatform 1.10.3 added, only needed dependencies remain
+- settings.gradle.kts configured with JetBrains Compose and Google plugin repositories
+- build.gradle.kts configured with Kotlin 2.3.10, Compose Desktop, Material3, Detekt, JDK 25 toolchain, strict compiler options (allWarningsAsErrors + -Wextra), JUnit Platform for tests, and the Compose Desktop application entry point
+- Source directory structure matches the SAD (Section 9): app/, core/, module/temperature/, module/weight/, ui/ — both main and test
+- ./gradlew build and ./gradlew detekt both pass cleanly
+
+Ready for Task 2 (Core Contracts) whenever you are.
+
+### User
+
+Good job. Tackle task 2!
+
+### Kiro
+
+Task 2 is done. Four files created in unitconverter.core:
+
+- ConversionModule — interface with name, units, default convert implementation using the canonical base unit strategy (ADR-003), and a @Composable content() for the tab UI
+- UnitDefinition — interface with name, abbreviation, toBase/fromBase conversion functions, and validate
+- ValidationResult — sealed interface with Valid and Invalid(message) variants
+- Formatter — output formatting with max 4 decimal places, scientific notation for extreme values, NaN/Infinity handling
+
+Everything compiles with strict options and passes Detekt. Ready for Tasks 3/4/5 (the TDD converter and formatter implementations).

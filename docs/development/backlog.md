@@ -9,8 +9,8 @@
 
 | # | Task | Priority | Complexity | Dependencies | Status |
 |---|------|----------|------------|--------------|--------|
-| 1 | Project Setup | 1 — Critical | 5 | None | TODO |
-| 2 | Core Contracts | 1 — Critical | 3 | Task 1 | TODO |
+| 1 | Project Setup | 1 — Critical | 5 | None | DONE |
+| 2 | Core Contracts | 1 — Critical | 3 | Task 1 | DONE |
 | 3 | Temperature Converter (TDD) | 1 — Critical | 5 | Task 2 | TODO |
 | 4 | Weight Converter (TDD) | 1 — Critical | 3 | Task 2 | TODO |
 | 5 | Output Formatter (TDD) | 1 — Critical | 3 | Task 2 | TODO |
