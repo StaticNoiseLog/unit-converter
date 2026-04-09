@@ -14,6 +14,7 @@
 | Compose Multiplatform | JetBrains' declarative UI framework based on Jetpack Compose, targeting desktop platforms (Windows, macOS, Linux) in this project. | UI Framework |
 | Live Update | The behavior where changing a value in one unit field immediately recalculates and displays the corresponding values in all other unit fields on the same tab (subject to debounce). | UI |
 | MoSCoW | A prioritization method classifying requirements as Must-have, Should-have, Could-have, or Won't-have. | Requirements |
+| MVVM | Model-View-ViewModel — an architectural pattern that separates an application into three layers: the Model (data and business logic), the View (UI rendering), and the ViewModel (state holder that transforms model data for the view and handles user interactions). The View observes the ViewModel's state and re-renders when it changes. Used in this project to isolate conversion logic from the Compose UI. | Architecture |
 | Kano Model | A model classifying features as Basic Needs, Performance Needs, or Exciters/Delighters based on customer satisfaction impact. | Requirements |
 | Quality Attributes | Measurable qualities of the system such as performance, usability, maintainability, etc. Replaces the outdated term "Non-Functional Requirements". | Requirements |
 | Reset Button | A UI control that clears all input and output fields on the currently visible tab only. | UI |
