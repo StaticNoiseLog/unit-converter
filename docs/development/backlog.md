@@ -11,9 +11,9 @@
 |---|------|----------|------------|--------------|--------|
 | 1 | Project Setup | 1 — Critical | 5 | None | DONE |
 | 2 | Core Contracts | 1 — Critical | 3 | Task 1 | DONE |
-| 3 | Temperature Converter (TDD) | 1 — Critical | 5 | Task 2 | TODO |
-| 4 | Weight Converter (TDD) | 1 — Critical | 3 | Task 2 | TODO |
-| 5 | Output Formatter (TDD) | 1 — Critical | 3 | Task 2 | TODO |
+| 3 | Temperature Converter (TDD) | 1 — Critical | 5 | Task 2 | DONE |
+| 4 | Weight Converter (TDD) | 1 — Critical | 3 | Task 2 | DONE |
+| 5 | Output Formatter (TDD) | 1 — Critical | 3 | Task 2 | DONE |
 | 6 | Temperature ViewModel | 1 — Critical | 8 | Tasks 3, 5 | TODO |
 | 7 | Weight ViewModel | 1 — Critical | 5 | Tasks 4, 5 | TODO |
 | 8 | Shared UI Components | 1 — Critical | 5 | Task 2 | TODO |

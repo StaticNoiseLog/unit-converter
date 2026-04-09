@@ -3,7 +3,7 @@
 package unitconverter.core
 
 interface UnitDefinition {
-    val name: String
+    val unitName: String
     val abbreviation: String
     fun toBase(value: Double): Double
     fun fromBase(value: Double): Double

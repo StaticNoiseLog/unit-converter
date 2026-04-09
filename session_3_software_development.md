@@ -74,3 +74,18 @@ Task 2 is done. Four files created in unitconverter.core:
 - Formatter — output formatting with max 4 decimal places, scientific notation for extreme values, NaN/Infinity handling
 
 Everything compiles with strict options and passes Detekt. Ready for Tasks 3/4/5 (the TDD converter and formatter implementations).
+
+### User
+
+Thanks! Go ahead and implement tasks 3, 4 and 5.
+
+### Kiro
+
+Tasks 3, 4, and 5 are done. Here's the summary:
+
+- TemperatureUnit enum — Celsius, Fahrenheit, Kelvin with canonical Kelvin base, absolute zero validation with tolerance for floating-point precision
+- WeightUnit enum — Gram, Kilogram, Ounce, Pound with canonical Gram base, factor-based conversion, no domain constraints Formatter — handles decimal formatting (max 4 dp, trailing zeros stripped), scientific notation for extreme values (≥1e15 or <1e-4), and NaN/Infinity edge cases
+- UnitDefinition.name renamed to unitName to avoid conflict with Enum.name
+- 63 tests all passing, covering conversion formulas, round-trips, PRD acceptance criteria, absolute zero boundaries, validation, and formatting edge cases
+
+Ready for Tasks 6/7/8 (ViewModels and shared UI) whenever you want to continue.

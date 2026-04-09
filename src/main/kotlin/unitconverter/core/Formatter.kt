@@ -5,12 +5,10 @@
 package unitconverter.core
 
 import kotlin.math.abs
-import kotlin.math.roundToLong
 
 object Formatter {
 
     private const val MAX_DECIMALS = 4
-    private const val SCALE = 10_000.0
     private const val SCI_UPPER = 1e15
     private const val SCI_LOWER = 1e-4
 
@@ -20,20 +18,17 @@ object Formatter {
     }
 
     private fun formatFinite(value: Double): String {
-        val rounded = (value * SCALE).roundToLong() / SCALE
+        val absValue = abs(value)
         return when {
-            rounded != 0.0 && (abs(rounded) >= SCI_UPPER || abs(rounded) < SCI_LOWER) -> buildScientific(value)
-            else -> stripTrailingZeros(rounded)
+            absValue == 0.0 -> "0"
+            absValue >= SCI_UPPER || absValue < SCI_LOWER -> buildScientific(value)
+            else -> stripTrailingZeros("%.${MAX_DECIMALS}f".format(value))
         }
     }
 
-    private fun buildScientific(value: Double): String {
-        val formatted = "%.${MAX_DECIMALS}e".format(value)
-        return formatted
-    }
+    private fun buildScientific(value: Double): String = "%.${MAX_DECIMALS}e".format(value)
 
-    private fun stripTrailingZeros(value: Double): String {
-        val text = "%.${MAX_DECIMALS}f".format(value)
+    private fun stripTrailingZeros(text: String): String {
         if ('.' !in text) return text
         return text.trimEnd('0').trimEnd('.')
     }
