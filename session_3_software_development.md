@@ -135,3 +135,49 @@ Can you find the cause for this problem and solve it?
 Task 10 done. The root cause was that App.kt only composed the selected tab's content(), so when switching tabs the composable left the tree and remember disposed the ViewModel. The fix renders all tabs simultaneously inside a Box, using alpha(0f) to hide inactive ones. This keeps every module's remember block alive, preserving ViewModel state across tab switches — exactly what ADR-002 prescribes.
 
 You can verify by running ./gradlew run again — enter values on the Temperature tab, switch to Weight, switch back, and the values should persist.
+
+### User
+
+Hmm. When I start the app the "Temperature" tab is active. But when I type a number it goes (invisibly) into a field in the "Weight" tab. The number (interpreted as a weight) becomes visible when I switch to the "Weight" tab. There is some kind of confusion going on with input field focus and active tab selection. Indeed I cannot enter numbers on the "Temperature" tab at all.
+Please analyze this in detail and fix the root cause so the GUI works as expected.
+
+On the bright side, the values on the "Weight" tab now are indeed preserved when I switch to the "Temperature" tab and back to the "Weight" tab.
+
+Something else: The border of the tabs are not visible (in the top part of the GUI). Only when I hover with the mouse over the tab does it become clear where it starts and ends because it takes on a highlighting color. I think it would be best if the active tab (the top part only) were highlighted (similar to highlighting for mouse hover). Basically there should be four distinct states for the tabs, each one with its own background color: "not active", "active", "not active + hover", "active + hover".
+
+### Kiro
+
+Both issues fixed:
+
+1. Focus stealing — Hidden tabs now have focusProperties { canFocus = false } applied, which prevents any child composable from receiving focus. Keyboard input will only go to the visible tab's fields.
+2. Tab visual distinction — Replaced PrimaryTabRow + Tab with a custom TabBar using four distinct background colors:
+   - Inactive: light gray (#F5F5F5)
+   - Active: light blue (#E3F2FD)
+   - Inactive + hover: medium gray (#E0E0E0)
+   - Active + hover: medium blue (#BBDEFB)  
+   The active tab also uses the primary color for its text, while inactive tabs use a muted variant.
+
+Run ./gradlew run to verify — typing on the Temperature tab should now stay on that tab, and the tab bar should clearly show which tab is selected.
+
+### User
+
+Issue 2 is fixed, thanks!
+
+But issue 1 remains unsolved, I see no chnage in behavior.
+Do you need additional input to debug the problem?
+
+### Kiro
+
+The approach is now fundamentally different: hidden tabs are moved 10,000dp off-screen to the right. They remain in the composition tree (so remember keeps the ViewModel alive), but they're physically unreachable — no clicks, no focus, no keyboard input can reach them. When a tab becomes selected, the offset is removed and it appears in place.
+
+Please try ./gradlew run again. Typing on the Temperature tab should now work correctly, and state should still be preserved when switching tabs.
+
+### User
+
+Good, now this issue with tab and input field focus is solved.
+We can consider task 10 done.
+
+Task 11 now turns out to be potentially more useful than expected: It would be great if an automated GUI test could assure that state is preserved when switching tabs and that input focus works correctly.
+
+Let's try to implement both tests with task 11!
+
