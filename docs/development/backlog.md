@@ -19,7 +19,7 @@
 | 8 | Shared UI Components | 1 — Critical | 5 | Task 2 | DONE |
 | 9 | App Shell (Registry, Tab Host, Main) | 1 — Critical | 5 | Tasks 6, 7, 8 | DONE |
 | 10 | Integration and Manual Testing | 1 — Critical | 3 | Task 9 | DONE |
-| 11 | Compose UI Tests | 3 — Nice to have | 5 | Task 9 | TODO |
+| 11 | Compose UI Tests | 3 — Nice to have | 5 | Task 9 | DONE |
 | 12 | Polish and Edge Cases | 2 — Important | 3 | Task 10 | TODO |
 | 13 | README Update | 2 — Important | 1 | Task 10 | TODO |
 

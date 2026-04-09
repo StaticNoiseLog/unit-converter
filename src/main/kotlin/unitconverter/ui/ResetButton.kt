@@ -13,13 +13,14 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ResetButton(
     onClick: () -> Unit,
+    testTag: String = "reset-button",
     modifier: Modifier = Modifier,
 ) {
     Button(
         onClick = onClick,
         modifier = modifier
             .padding(16.dp)
-            .testTag("reset-button"),
+            .testTag(testTag),
     ) {
         Text("Reset", fontSize = Theme.fieldFontSize)
     }

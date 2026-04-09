@@ -18,6 +18,6 @@ class TemperatureModule : ConversionModule {
     override fun content() {
         val scope = rememberCoroutineScope()
         val viewModel = remember { ConversionViewModel(units, scope) }
-        ConversionTab(viewModel)
+        ConversionTab(viewModel, "Temperature")
     }
 }

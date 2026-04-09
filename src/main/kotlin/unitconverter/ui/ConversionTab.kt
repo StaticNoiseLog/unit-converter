@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import unitconverter.core.ConversionViewModel
 
 @Composable
-fun ConversionTab(viewModel: ConversionViewModel) {
+fun ConversionTab(viewModel: ConversionViewModel, moduleName: String) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -35,6 +35,9 @@ fun ConversionTab(viewModel: ConversionViewModel) {
                 onFocusLost = { viewModel.onFocusLost(unit) },
             )
         }
-        ResetButton(onClick = { viewModel.reset() })
+        ResetButton(
+            onClick = { viewModel.reset() },
+            testTag = "reset-$moduleName",
+        )
     }
 }

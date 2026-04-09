@@ -181,3 +181,14 @@ Task 11 now turns out to be potentially more useful than expected: It would be g
 
 Let's try to implement both tests with task 11!
 
+### Kiro
+
+Task 11 done. Five UI tests implemented using compose.desktop.uiTestJUnit4 with JUnit 4 (via JUnit Vintage engine for JUnit Platform compatibility):
+
+1. Temperature tab is selected by default
+2. Switching to Weight tab shows weight fields
+3. State preserved when switching tabs and back (the bug we fixed earlier)
+4. Reset clears fields on current tab only, preserving other tab's state
+5. Input goes to visible tab only (the focus stealing bug we fixed)
+
+Along the way I also fixed the duplicate testTag issue — reset buttons now have module-specific tags (reset-Temperature, reset-Weight) since both tabs are always in the composition tree.
