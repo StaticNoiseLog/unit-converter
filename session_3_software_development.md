@@ -107,3 +107,17 @@ Tasks 6, 7, and 8 are done. Here's what was built:
 - Detekt configured to allow PascalCase for @Composable functions.
 
 Ready for Task 9 (App Shell) to wire everything together into a running application.
+
+### User
+
+Good job. Yes, let's see the app come to life with task 9!
+
+### Kiro
+
+Task 9 is done. The app is alive. Here's what was built:
+
+- ModuleRegistry — takes a list of modules, sorts them alphabetically, exposes them for the tab host
+- App.kt — root composable with MaterialTheme, PrimaryTabRow rendering tabs dynamically from the registry, tab selection state preserved via rememberSaveable, and content area showing the selected module's composable
+- Main.kt — bootstraps the registry with TemperatureModule and WeightModule, launches a Compose window at 500×600dp titled "Unit Converter"
+
+You can now run the app with ./gradlew run. It will show two tabs (Temperature, Weight) in alphabetical order, with unit fields stacked vertically, debounced live conversion, validation with red highlighting, and a reset button per tab.
