@@ -192,3 +192,18 @@ Task 11 done. Five UI tests implemented using compose.desktop.uiTestJUnit4 with 
 5. Input goes to visible tab only (the focus stealing bug we fixed)
 
 Along the way I also fixed the duplicate testTag issue — reset buttons now have module-specific tags (reset-Temperature, reset-Weight) since both tabs are always in the composition tree.
+
+### User
+
+Excellent! Now use the test infrastructure for task 12. It should be possible to implement the mentioned tests.
+
+### Kiro
+
+Task 12 done. 12 new UI tests added in ConversionUiTest, covering the PRD acceptance criteria end-to-end through the full UI stack:
+
+- REQ-004: Default state — all fields empty, no errors on both tabs
+- REQ-001: Temperature conversion — 100°C→212°F/373.15K, 0K→-273.15°C/-459.67°F, -273.15°C→0K/-459.67°F
+- REQ-002: Weight conversion — 1000g→1kg/35.274oz/2.2046lb, negative values
+- REQ-005: Validation — non-numeric input error, below-absolute-zero error, scientific notation accepted, error clears after correction
+
+Total test count is now 80 (63 unit + 17 UI). All passing, Detekt clean. Task 13 (README) is the last one.
