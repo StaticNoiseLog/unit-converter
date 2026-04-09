@@ -12,7 +12,7 @@ Session Dialog
 #software_development_playbook.md 
 
 For an easier start, I have already initialized the project with the desired Gradle wrapper.
-I have also provided a copy of libs.versions.toml from another project. It surely contains dependencies not needed in this project and is likely lacking others. But it is useful because it provides correct and current versions.
+I have also provided a copy of libs.versions.toml from another project. It surely contains dependencies not needed for this project and is probably missing others. But it is useful because it provides correct and current versions.
 
 Do you understand the software_development_playbook and do you have everything needed to start implementation?
 
@@ -126,7 +126,7 @@ You can now run the app with ./gradlew run. It will show two tabs (Temperature, 
 
 Looks nice! We can move on to task 10.
 
-While "./gradlew test" and "./gradlew detekt" are OK, manual testing has revealed that the state is not preserved when switching tabs. I.e. temperature values are reset when I switch to the "Weight" tab and then back to the "Temperature" tab.
+While "./gradlew test" and "./gradlew detekt" are OK, manual testing has revealed that the state is not preserved when switching tabs, i.e. temperature values are reset when I switch to the "Weight" tab and then back to the "Temperature" tab.
 
 Can you find the cause for this problem and solve it?
 
@@ -163,7 +163,7 @@ Run ./gradlew run to verify — typing on the Temperature tab should now stay on
 
 Issue 2 is fixed, thanks!
 
-But issue 1 remains unsolved, I see no chnage in behavior.
+But issue 1 remains unsolved, I see no change in behavior.
 Do you need additional input to debug the problem?
 
 ### Kiro
