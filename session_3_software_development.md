@@ -121,3 +121,17 @@ Task 9 is done. The app is alive. Here's what was built:
 - Main.kt — bootstraps the registry with TemperatureModule and WeightModule, launches a Compose window at 500×600dp titled "Unit Converter"
 
 You can now run the app with ./gradlew run. It will show two tabs (Temperature, Weight) in alphabetical order, with unit fields stacked vertically, debounced live conversion, validation with red highlighting, and a reset button per tab.
+
+### User
+
+Looks nice! We can move on to task 10.
+
+While "./gradlew test" and "./gradlew detekt" are OK, manual testing has revealed that the state is not preserved when switching tabs. I.e. temperature values are reset when I switch to the "Weight" tab and then back to the "Temperature" tab.
+
+Can you find the cause for this problem and solve it?
+
+### Kiro
+
+Task 10 done. The root cause was that App.kt only composed the selected tab's content(), so when switching tabs the composable left the tree and remember disposed the ViewModel. The fix renders all tabs simultaneously inside a Box, using alpha(0f) to hide inactive ones. This keeps every module's remember block alive, preserving ViewModel state across tab switches — exactly what ADR-002 prescribes.
+
+You can verify by running ./gradlew run again — enter values on the Temperature tab, switch to Weight, switch back, and the values should persist.
